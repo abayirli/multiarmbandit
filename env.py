@@ -4,6 +4,9 @@ import random
 import matplotlib.pyplot as plt
 
 def get_reward(prob, n = 10):
+    """Create a random integer reward in proportion to the assigned probabilities
+    to the levers
+    """
     reward = 0
     for i in range(n):
         if random.random() < prob:
@@ -28,5 +31,8 @@ def get_best_arm(record):
     return arm_index
 
 def softmax(av, tau=1.12):
+    """Return softmax probabilities of the average rewards
+    with a given temperature parameter tau
+    """
     softm = np.exp(av/tau) / np.sum(np.exp(av/tau))
     return softm
